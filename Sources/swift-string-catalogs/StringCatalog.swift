@@ -71,6 +71,7 @@ public struct StringCatalog : Codable {
             public struct Plural : Codable {
                 public let zero:StringUnit?
                 public let one:StringUnit
+                public let two:StringUnit?
                 public let few:StringUnit?
                 public let many:StringUnit?
                 public let other:StringUnit
