@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "swift-string-catalogs",
+    defaultLocalization: "en",
     products: [
         .library(
             name: "SwiftStringCatalogs",
@@ -14,7 +15,10 @@ let package = Package(
     targets: [
         .target(
             name: "SwiftStringCatalogs",
-            path: "Sources/swift-string-catalogs"
+            path: "Sources/swift-string-catalogs",
+            resources: [
+                .process("Resources")
+            ]
         ),
         .testTarget(
             name: "SwiftStringCatalogsTests",

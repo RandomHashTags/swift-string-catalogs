@@ -58,7 +58,8 @@ public struct StringCatalog : Codable {
             }
         }
         public struct RawVariations : Codable {
-            public let variations:Variation
+            public let variations:Variation?
+            public let stringUnit:Unit?
 
             public struct Variation : Codable {
                 public let plural:StringCatalog.Entry.Variations.Plural?
