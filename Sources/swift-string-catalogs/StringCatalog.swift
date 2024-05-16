@@ -33,11 +33,26 @@ public struct StringCatalog : Codable {
                 case stale
                 case translated
             }
+
+            public init(state: State = State.needs_review, value: String) {
+                self.state = state
+                self.value = value
+            }
         }
         public struct Variations : Codable {
             public let stringUnit:Unit?
             public let variations:Variation?
+            public let substitutions:[String:Substitution]?
 
+            public struct Substitution : Codable {
+                let argNum:Int
+                let formatSpecifier:String
+                let variations:Variation
+
+                public struct Variation : Codable {
+                    public let plural:Plural?
+                }
+            }
             public struct Variation : Codable {
                 public let device:Device?
                 public let plural:Plural?
