@@ -110,6 +110,10 @@ public extension String {
 }
 
 public extension String {
+    struct LocalizationOptions {
+        public var replacements:[any CVarArg]?
+    }
+
     struct LocalizedStringKey : Equatable, ExpressibleByStringInterpolation {
         public typealias ExtendedGraphemeClusterLiteralType = String
         public typealias StringLiteralType = String
