@@ -13,7 +13,7 @@ public struct StringCatalog : Codable {
     public struct Entry : Codable {
         public let comment:String?
         public let extractionState:ExtractionState
-        public let localizations:[String:Variations]?
+        public let localizations:[String:Localization]?
         
         public enum ExtractionState : String, Codable {
             case manual
@@ -39,21 +39,21 @@ public struct StringCatalog : Codable {
                 self.value = value
             }
         }
-        public struct Variations : Codable {
+        public struct Localization : Codable {
             public let stringUnit:Unit?
-            public let variations:Variation?
+            public let variations:Variations?
             public let substitutions:[String:Substitution]?
 
             public struct Substitution : Codable {
                 let argNum:Int
                 let formatSpecifier:String
-                let variations:Variation
+                let variations:Variations
 
-                public struct Variation : Codable {
+                public struct Variations : Codable {
                     public let plural:Plural?
                 }
             }
-            public struct Variation : Codable {
+            public struct Variations : Codable {
                 public let device:Device?
                 public let plural:Plural?
             }
@@ -78,11 +78,11 @@ public struct StringCatalog : Codable {
             }
         }
         public struct RawVariations : Codable {
-            public let variations:Variation?
+            public let variations:Variations?
             public let stringUnit:Unit?
 
-            public struct Variation : Codable {
-                public let plural:StringCatalog.Entry.Variations.Plural?
+            public struct Variations : Codable {
+                public let plural:StringCatalog.Entry.Localization.Plural?
             }
         }
     }
