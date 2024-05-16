@@ -94,7 +94,7 @@
                   "plural" : {
                     "one" : {
                       "stringUnit" : {
-                        "state" : "needs_review",
+                        "state" : "stale",
                         "value" : "%d Left"
                       }
                     },
@@ -128,6 +128,306 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "needs_review",
+                  "value" : "%d Left"
+                }
+              }
+            }
+          }
+        },
+        "es" : {
+          "variations" : {
+            "device" : {
+              "appletv" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "applevision" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "ipad" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "iphone" : {
+                "variations" : {
+                  "plural" : {
+                    "one" : {
+                      "stringUnit" : {
+                        "state" : "translated",
+                        "value" : "%d Left"
+                      }
+                    },
+                    "other" : {
+                      "stringUnit" : {
+                        "state" : "new",
+                        "value" : "%d Left"
+                      }
+                    },
+                    "zero" : {
+                      "stringUnit" : {
+                        "state" : "new",
+                        "value" : "%d Left"
+                      }
+                    }
+                  }
+                }
+              },
+              "ipod" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "device" : {
+              "appletv" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "applevision" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "ipad" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "iphone" : {
+                "variations" : {
+                  "plural" : {
+                    "one" : {
+                      "stringUnit" : {
+                        "state" : "new",
+                        "value" : "%d Left"
+                      }
+                    },
+                    "other" : {
+                      "stringUnit" : {
+                        "state" : "new",
+                        "value" : "%d Left"
+                      }
+                    },
+                    "zero" : {
+                      "stringUnit" : {
+                        "state" : "translated",
+                        "value" : "%d Left"
+                      }
+                    }
+                  }
+                }
+              },
+              "ipod" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              }
+            }
+          }
+        },
+        "pt-BR" : {
+          "variations" : {
+            "device" : {
+              "appletv" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "applevision" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "ipad" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "iphone" : {
+                "variations" : {
+                  "plural" : {
+                    "one" : {
+                      "stringUnit" : {
+                        "state" : "new",
+                        "value" : "%d Left"
+                      }
+                    },
+                    "other" : {
+                      "stringUnit" : {
+                        "state" : "new",
+                        "value" : "%d Left"
+                      }
+                    },
+                    "zero" : {
+                      "stringUnit" : {
+                        "state" : "translated",
+                        "value" : "%d Left"
+                      }
+                    }
+                  }
+                }
+              },
+              "ipod" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              }
+            }
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "device" : {
+              "appletv" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "applevision" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "ipad" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "iphone" : {
+                "variations" : {
+                  "plural" : {
+                    "few" : {
+                      "stringUnit" : {
+                        "state" : "new",
+                        "value" : "%d Left"
+                      }
+                    },
+                    "many" : {
+                      "stringUnit" : {
+                        "state" : "new",
+                        "value" : "%d Left"
+                      }
+                    },
+                    "one" : {
+                      "stringUnit" : {
+                        "state" : "new",
+                        "value" : "%d Left"
+                      }
+                    },
+                    "other" : {
+                      "stringUnit" : {
+                        "state" : "new",
+                        "value" : "%d Left"
+                      }
+                    },
+                    "zero" : {
+                      "stringUnit" : {
+                        "state" : "translated",
+                        "value" : "%d Left"
+                      }
+                    }
+                  }
+                }
+              },
+              "ipod" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "mac" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%d Left"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "new",
                   "value" : "%d Left"
                 }
               }
