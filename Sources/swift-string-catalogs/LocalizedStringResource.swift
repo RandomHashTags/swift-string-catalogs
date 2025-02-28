@@ -7,8 +7,9 @@
 
 #if !(os(macOS) || os(iOS) || os(tvOS) || os(watchOS)  || os(visionOS))
 import Foundation
+
 public extension String {
-    struct LocalizationValue : Equatable, ExpressibleByStringInterpolation, Codable {
+    struct LocalizationValue : Equatable, ExpressibleByStringInterpolation, Codable, Sendable {
 
         public enum Placeholder : Codable, Hashable, Sendable {
             case int
@@ -44,19 +45,19 @@ public extension String {
     }*/
 }
 
-public extension String {
-    init(localized resource: LocalizedStringResource) {
+extension String {
+    public init(localized resource: LocalizedStringResource) {
         fatalError("not yet implemented")
     }
-    init(localized resource: LocalizedStringResource, options: String.LocalizationOptions) {
+    public init(localized resource: LocalizedStringResource, options: String.LocalizationOptions) {
         fatalError("not yet implemented")
     }
 
-    struct LocalizationOptions {
+    public struct LocalizationOptions : @unchecked Sendable {
         public var replacements:[any CVarArg]?
     }
 
-    struct LocalizedStringKey : Equatable, ExpressibleByStringInterpolation {
+    public struct LocalizedStringKey : Equatable, ExpressibleByStringInterpolation, Sendable {
         public typealias ExtendedGraphemeClusterLiteralType = String
         public typealias StringLiteralType = String
         public typealias UnicodeScalarLiteralType = String
@@ -72,7 +73,7 @@ public extension String {
     }
 }
 
-public protocol CustomLocalizedStringResourceConvertible {
+public protocol CustomLocalizedStringResourceConvertible : Sendable {
     var localizedStringResource : LocalizedStringResource { get }
 }
 
