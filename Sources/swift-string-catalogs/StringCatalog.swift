@@ -10,11 +10,23 @@ public struct StringCatalog : Codable, Hashable, Sendable {
     public let version:String
     public let strings:[String:StringCatalog.Entry]
 
+    public init(sourceLanguage: String, version: String, strings: [String:StringCatalog.Entry]) {
+        self.sourceLanguage = sourceLanguage
+        self.version = version
+        self.strings = strings
+    }
+
     public struct Entry : Codable, Hashable, Sendable {
         public let comment:String?
         public let extractionState:ExtractionState
         public let localizations:[String:Localization]?
-        
+
+        public init(comment: String?, extractionState: ExtractionState, localizations: [String:Localization]?) {
+            self.comment = comment
+            self.extractionState = extractionState
+            self.localizations = localizations
+        }
+
         public enum ExtractionState : String, Codable, Hashable, Sendable {
             case manual
             case migrated
@@ -22,6 +34,10 @@ public struct StringCatalog : Codable, Hashable, Sendable {
 
         public struct StringUnit : Codable, Hashable, Sendable {
             public let stringUnit:Unit
+
+            public init(stringUnit: Unit) {
+                self.stringUnit = stringUnit
+            }
         }
         public struct Unit : Codable, Hashable, Sendable {
             public let state:State
@@ -44,18 +60,39 @@ public struct StringCatalog : Codable, Hashable, Sendable {
             public let variations:Variations?
             public let substitutions:[String:Substitution]?
 
+            public init(stringUnit: Unit?, variations: Variations?, substitutions: [String:Substitution]?) {
+                self.stringUnit = stringUnit
+                self.variations = variations
+                self.substitutions = substitutions
+            }
+
             public struct Substitution : Codable, Hashable, Sendable {
                 let argNum:Int
                 let formatSpecifier:String
                 let variations:Variations
 
+                public init(argNum: Int, formatSpecifier: String, variations: Variations) {
+                    self.argNum = argNum
+                    self.formatSpecifier = formatSpecifier
+                    self.variations = variations
+                }
+
                 public struct Variations : Codable, Hashable, Sendable {
                     public let plural:Plural?
+
+                    public init(plural: Plural?) {
+                        self.plural = plural
+                    }
                 }
             }
             public struct Variations : Codable, Hashable, Sendable {
                 public let device:Device?
                 public let plural:Plural?
+
+                public init(device: Device?, plural: Plural?) {
+                    self.device = device
+                    self.plural = plural
+                }
             }
 
             public struct Device : Codable, Hashable, Sendable {
@@ -67,6 +104,17 @@ public struct StringCatalog : Codable, Hashable, Sendable {
                 public let ipod:RawVariations?
                 public let mac:RawVariations?
                 public let other:RawVariations?
+
+                public init(appletv: RawVariations?, applevision: RawVariations?, applewatch: RawVariations?, ipad: RawVariations?, iphone: RawVariations?, ipod: RawVariations?, mac: RawVariations?, other: RawVariations?) {
+                    self.appletv = appletv
+                    self.applevision = applevision
+                    self.applewatch = applewatch
+                    self.ipad = ipad
+                    self.iphone = iphone
+                    self.ipod = ipod
+                    self.mac = mac
+                    self.other = other
+                }
             }
             public struct Plural : Codable, Hashable, Sendable {
                 public let zero:StringUnit?
@@ -75,14 +123,32 @@ public struct StringCatalog : Codable, Hashable, Sendable {
                 public let few:StringUnit?
                 public let many:StringUnit?
                 public let other:StringUnit
+
+                public init(zero: StringUnit?, one: StringUnit, two: StringUnit?, few: StringUnit?, many: StringUnit?, other: StringUnit) {
+                    self.zero = zero
+                    self.one = one
+                    self.two = two
+                    self.few = few
+                    self.many = many
+                    self.other = other
+                }
             }
         }
         public struct RawVariations : Codable, Hashable, Sendable {
             public let variations:Variations?
             public let stringUnit:Unit?
 
+            public init(variations: Variations?, stringUnit: Unit?) {
+                self.variations = variations
+                self.stringUnit = stringUnit
+            }
+
             public struct Variations : Codable, Hashable, Sendable {
                 public let plural:StringCatalog.Entry.Localization.Plural?
+
+                public init(plural: StringCatalog.Entry.Localization.Plural?) {
+                    self.plural = plural
+                }
             }
         }
     }
