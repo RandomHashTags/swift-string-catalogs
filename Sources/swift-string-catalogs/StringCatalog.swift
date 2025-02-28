@@ -5,29 +5,29 @@
 //  Created by Evan Anderson on 5/16/24.
 //
 
-public struct StringCatalog : Codable, Sendable {
+public struct StringCatalog : Codable, Hashable, Sendable {
     public let sourceLanguage:String
     public let version:String
     public let strings:[String:StringCatalog.Entry]
 
-    public struct Entry : Codable, Sendable {
+    public struct Entry : Codable, Hashable, Sendable {
         public let comment:String?
         public let extractionState:ExtractionState
         public let localizations:[String:Localization]?
         
-        public enum ExtractionState : String, Codable, Sendable {
+        public enum ExtractionState : String, Codable, Hashable, Sendable {
             case manual
             case migrated
         }
 
-        public struct StringUnit : Codable, Sendable {
+        public struct StringUnit : Codable, Hashable, Sendable {
             public let stringUnit:Unit
         }
-        public struct Unit : Codable, Sendable {
+        public struct Unit : Codable, Hashable, Sendable {
             public let state:State
             public let value:String
 
-            public enum State : String, Codable, Sendable {
+            public enum State : String, Codable, Hashable, Sendable {
                 case needs_review
                 case new
                 case stale
@@ -39,26 +39,26 @@ public struct StringCatalog : Codable, Sendable {
                 self.value = value
             }
         }
-        public struct Localization : Codable, Sendable {
+        public struct Localization : Codable, Hashable, Sendable {
             public let stringUnit:Unit?
             public let variations:Variations?
             public let substitutions:[String:Substitution]?
 
-            public struct Substitution : Codable, Sendable {
+            public struct Substitution : Codable, Hashable, Sendable {
                 let argNum:Int
                 let formatSpecifier:String
                 let variations:Variations
 
-                public struct Variations : Codable, Sendable {
+                public struct Variations : Codable, Hashable, Sendable {
                     public let plural:Plural?
                 }
             }
-            public struct Variations : Codable, Sendable {
+            public struct Variations : Codable, Hashable, Sendable {
                 public let device:Device?
                 public let plural:Plural?
             }
 
-            public struct Device : Codable, Sendable {
+            public struct Device : Codable, Hashable, Sendable {
                 public let appletv:RawVariations?
                 public let applevision:RawVariations?
                 public let applewatch:RawVariations?
@@ -68,7 +68,7 @@ public struct StringCatalog : Codable, Sendable {
                 public let mac:RawVariations?
                 public let other:RawVariations?
             }
-            public struct Plural : Codable, Sendable {
+            public struct Plural : Codable, Hashable, Sendable {
                 public let zero:StringUnit?
                 public let one:StringUnit
                 public let two:StringUnit?
@@ -77,11 +77,11 @@ public struct StringCatalog : Codable, Sendable {
                 public let other:StringUnit
             }
         }
-        public struct RawVariations : Codable, Sendable {
+        public struct RawVariations : Codable, Hashable, Sendable {
             public let variations:Variations?
             public let stringUnit:Unit?
 
-            public struct Variations : Codable, Sendable {
+            public struct Variations : Codable, Hashable, Sendable {
                 public let plural:StringCatalog.Entry.Localization.Plural?
             }
         }
