@@ -5,7 +5,7 @@
 //  Created by Evan Anderson on 5/16/24.
 //
 
-public struct StringCatalog : Hashable, Codable {
+public struct StringCatalog : Codable, Hashable, Sendable {
     public let sourceLanguage:String
     public let version:String
     public let strings:[String:StringCatalog.Entry]
@@ -16,7 +16,7 @@ public struct StringCatalog : Hashable, Codable {
         self.strings = strings
     }
 
-    public struct Entry : Hashable, Codable {
+    public struct Entry : Codable, Hashable, Sendable {
         public let comment:String?
         public let extractionState:ExtractionState
         public let localizations:[String:Localization]?
@@ -26,24 +26,24 @@ public struct StringCatalog : Hashable, Codable {
             self.extractionState = extractionState
             self.localizations = localizations
         }
-        
-        public enum ExtractionState : String, Codable {
+
+        public enum ExtractionState : String, Codable, Hashable, Sendable {
             case manual
             case migrated
         }
 
-        public struct StringUnit : Hashable, Codable {
+        public struct StringUnit : Codable, Hashable, Sendable {
             public let stringUnit:Unit
 
             public init(stringUnit: Unit) {
                 self.stringUnit = stringUnit
             }
         }
-        public struct Unit : Hashable, Codable {
+        public struct Unit : Codable, Hashable, Sendable {
             public let state:State
             public let value:String
 
-            public enum State : String, Codable {
+            public enum State : String, Codable, Hashable, Sendable {
                 case needs_review
                 case new
                 case stale
@@ -55,7 +55,7 @@ public struct StringCatalog : Hashable, Codable {
                 self.value = value
             }
         }
-        public struct Localization : Hashable, Codable {
+        public struct Localization : Codable, Hashable, Sendable {
             public let stringUnit:Unit?
             public let variations:Variations?
             public let substitutions:[String:Substitution]?
@@ -66,7 +66,7 @@ public struct StringCatalog : Hashable, Codable {
                 self.substitutions = substitutions
             }
 
-            public struct Substitution : Hashable, Codable {
+            public struct Substitution : Codable, Hashable, Sendable {
                 let argNum:Int
                 let formatSpecifier:String
                 let variations:Variations
@@ -77,7 +77,7 @@ public struct StringCatalog : Hashable, Codable {
                     self.variations = variations
                 }
 
-                public struct Variations : Hashable, Codable {
+                public struct Variations : Codable, Hashable, Sendable {
                     public let plural:Plural?
 
                     public init(plural: Plural?) {
@@ -85,7 +85,7 @@ public struct StringCatalog : Hashable, Codable {
                     }
                 }
             }
-            public struct Variations : Hashable, Codable {
+            public struct Variations : Codable, Hashable, Sendable {
                 public let device:Device?
                 public let plural:Plural?
 
@@ -95,7 +95,7 @@ public struct StringCatalog : Hashable, Codable {
                 }
             }
 
-            public struct Device : Hashable, Codable {
+            public struct Device : Codable, Hashable, Sendable {
                 public let appletv:RawVariations?
                 public let applevision:RawVariations?
                 public let applewatch:RawVariations?
@@ -116,7 +116,7 @@ public struct StringCatalog : Hashable, Codable {
                     self.other = other
                 }
             }
-            public struct Plural : Hashable, Codable {
+            public struct Plural : Codable, Hashable, Sendable {
                 public let zero:StringUnit?
                 public let one:StringUnit
                 public let two:StringUnit?
@@ -134,7 +134,7 @@ public struct StringCatalog : Hashable, Codable {
                 }
             }
         }
-        public struct RawVariations : Hashable, Codable {
+        public struct RawVariations : Codable, Hashable, Sendable {
             public let variations:Variations?
             public let stringUnit:Unit?
 
@@ -143,7 +143,7 @@ public struct StringCatalog : Hashable, Codable {
                 self.stringUnit = stringUnit
             }
 
-            public struct Variations : Hashable, Codable {
+            public struct Variations : Codable, Hashable, Sendable {
                 public let plural:StringCatalog.Entry.Localization.Plural?
 
                 public init(plural: StringCatalog.Entry.Localization.Plural?) {
